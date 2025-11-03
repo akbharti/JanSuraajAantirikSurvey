@@ -81,8 +81,11 @@ function App() {
     setLongAnswer("");
   };
 
-  const apiUrl = 'https://script.google.com/macros/s/AKfycbx6azyJvK2hzy2ANPEiNMWiygBiDErg3D38yb228GlaJzKoDEiSpkuPiIKGgjQdD_4c/exec';
+  // const apiUrl = 'https://script.google.com/macros/s/AKfycbxqG2mAk1yVS0lTkWB44zVSYA0yR6IYWEDzpVSF_ZE3MEFPWxCqQusb-W4HEo9DFFM/exec';
 
+  // const apiUrl = 'https://script.google.com/macros/s/AKfycbxqG2mAk1yVS0lTkWB44zVSYA0yR6IYWEDzpVSF_ZE3MEFPWxCqQusb-W4HEo9DFFM/exec';
+  const apiUrl = 'https://script.google.com/macros/s/AKfycbzy2U8RCWMEdEvF3kcCmYtWGB_sd3bpdqnAgYWGfsEL_5s0hGvkUAksF4-f4uHuPASH/exec';
+  
 const sendDataToSheet = async (jsonData) => {
   return new Promise((resolve) => {
     try {
