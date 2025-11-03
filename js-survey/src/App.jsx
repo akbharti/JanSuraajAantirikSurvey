@@ -81,24 +81,57 @@ function App() {
     setLongAnswer("");
   };
 
-  const apiUrl = 'https://script.google.com/macros/s/AKfycbzWe6-bVrcUgJMmT_ove8YW2O38S20kAeXVC--tgxgersD3jXPj8h2SvkmnzNh2PPkPMw/exec';
+  const apiUrl = 'https://script.google.com/macros/s/AKfycbx6azyJvK2hzy2ANPEiNMWiygBiDErg3D38yb228GlaJzKoDEiSpkuPiIKGgjQdD_4c/exec';
 
 const sendDataToSheet = async (jsonData) => {
-  try {
-    const response = await fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(jsonData),
-    });
-    const result = await response.json();
-    console.log(result);
-    return result;
-  } catch (error) {
-    console.error('Error:', error);
-    return { status: "error" };
-  }
+  return new Promise((resolve) => {
+    try {
+      // Create a hidden form
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = apiUrl;
+      form.target = 'hidden_iframe';
+      form.style.display = 'none';
+      
+      // Create hidden iframe to receive the response
+      const iframe = document.createElement('iframe');
+      iframe.name = 'hidden_iframe';
+      iframe.style.display = 'none';
+      
+      // Add form fields
+      Object.entries(jsonData).forEach(([key, value]) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = typeof value === 'object' ? JSON.stringify(value) : value;
+        form.appendChild(input);
+      });
+      
+      // Handle iframe load event
+      iframe.onload = () => {
+        // Clean up
+        document.body.removeChild(form);
+        document.body.removeChild(iframe);
+        
+        // Assume success since Google Apps Script doesn't send back proper responses
+        resolve({ status: "success", message: "Data submitted successfully" });
+      };
+      
+      // Add elements to DOM and submit
+      document.body.appendChild(iframe);
+      document.body.appendChild(form);
+      form.submit();
+      
+      // Timeout fallback
+      setTimeout(() => {
+        resolve({ status: "success", message: "Data submitted (timeout fallback)" });
+      }, 3000);
+      
+    } catch (error) {
+      console.error('Error sending to Google Sheets:', error);
+      resolve({ status: "error", message: error.message });
+    }
+  });
 };
 
 
