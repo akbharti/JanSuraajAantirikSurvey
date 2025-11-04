@@ -166,43 +166,45 @@ const sendDataToSheet = async (jsonData) => {
   }, [notification]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-100 via-white to-amber-50 p-4 md:p-6">
+    <div className="min-h-screen bg-gradient-to-b from-amber-100 via-white to-amber-50">
       <HeaderBanner />
-      {notification && (
-        <Notification
-          {...notification}
-          onClose={() => setNotification(null)}
-        />
-      )}
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-3xl mx-auto mt-8 backdrop-blur rounded-xl shadow-xl ring-2 ring-amber-300/50 p-6 md:p-8 space-y-6"
-        style={{ background: 'radial-gradient(circle, white 0%, rgba(251, 191, 36, 0.2) 100%)' }}
-        noValidate
-      >
-        <UserForm values={user} onUserChange={handleUserChange} errors={errors} />
-        <DistrictSelector values={geo} onDistrictChange={handleGeoChange} errors={errors} />
-        <RatingQuestions values={ratings} onRatingChange={handleRatingsChange} errors={errors} />
-        <MCQQuestions values={mcqs} onMCQChange={handleMCQChange} errors={errors} />
-        <LongAnswerQuestion
-          value={longAnswer}
-          onChange={val => {
-            setLongAnswer(val);
-            setErrors(prev => { const e = { ...prev }; delete e.longAnswer; return e; });
-          }}
-          error={errors.longAnswer}
-        />
+      <div className="p-4 md:p-6">
+        {notification && (
+          <Notification
+            {...notification}
+            onClose={() => setNotification(null)}
+          />
+        )}
+        <form
+          onSubmit={handleSubmit}
+          className="max-w-3xl mx-auto mt-8 backdrop-blur rounded-xl shadow-xl ring-2 ring-amber-300/50 p-6 md:p-8 space-y-6"
+          style={{ background: 'radial-gradient(circle, white 0%, rgba(251, 191, 36, 0.2) 100%)' }}
+          noValidate
+        >
+          <UserForm values={user} onUserChange={handleUserChange} errors={errors} />
+          <DistrictSelector values={geo} onDistrictChange={handleGeoChange} errors={errors} />
+          <RatingQuestions values={ratings} onRatingChange={handleRatingsChange} errors={errors} />
+          <MCQQuestions values={mcqs} onMCQChange={handleMCQChange} errors={errors} />
+          <LongAnswerQuestion
+            value={longAnswer}
+            onChange={val => {
+              setLongAnswer(val);
+              setErrors(prev => { const e = { ...prev }; delete e.longAnswer; return e; });
+            }}
+            error={errors.longAnswer}
+          />
 
 
-        <div className="text-center pt-2">
-          <button
-            type="submit"
-            className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-[rgb(247,199,27)] to-orange-500 text-white font-medium rounded-lg shadow hover:from-amber-500 hover:to-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 active:from-amber-600 active:to-orange-700 transition"
-          >
-            Submit Survey
-          </button>
-        </div>
-      </form>
+          <div className="text-center pt-2">
+            <button
+              type="submit"
+              className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-[rgb(247,199,27)] to-orange-500 text-white font-medium rounded-lg shadow hover:from-amber-500 hover:to-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 active:from-amber-600 active:to-orange-700 transition"
+            >
+              Submit Survey
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
