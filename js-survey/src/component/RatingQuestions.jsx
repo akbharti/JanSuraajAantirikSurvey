@@ -13,18 +13,18 @@ const RatingQuestions = ({ values, onRatingChange, errors }) => {
       {questions.map((q, idx) => (
         <div key={q.id} className="mb-4">
           <div className="mb-2 font-medium text-gray-900">{idx + 1}. {q.text}</div>
-          <div className="flex space-x-4">
+          <div className="flex flex-wrap gap-2 sm:gap-4">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-              <label key={num} className="flex items-center space-x-1">
+              <label key={num} className="flex items-center gap-1 cursor-pointer">
                 <input
                   type="radio"
                   name={`question-${q.id}`}
                   value={num}
                   checked={values[q.id] === num}
                   onChange={() => handleChange(q.id, num)}
-                  className={errors && errors[`rating_${q.id}`] ? 'border-red-500' : ''}
+                  className={`cursor-pointer ${errors && errors[`rating_${q.id}`] ? 'border-red-500' : ''}`}
                 />
-                <span>{num}</span>
+                <span className="text-sm sm:text-base">{num}</span>
               </label>
             ))}
           </div>
