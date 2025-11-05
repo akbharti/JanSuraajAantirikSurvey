@@ -8,6 +8,7 @@ import Notification from "./component/Notification"; // see previous answer for 
 import surveyQuestions from "./Resource/survey_questions.json";
 import mcqQuestions from "./Resource/mcq_questions.json";
 import LongAnswerQuestion from "./component/LongAnswerQuestion";
+import Footer from "./component/Footer";
 
 function App() {
   const [user, setUser] = useState({ name: "", phone: "" });
@@ -251,6 +252,7 @@ const sendDataToSheet = async (jsonData) => {
           </div>
         </form>
       </div>
+      <Footer />
     </div>
   );
 }
