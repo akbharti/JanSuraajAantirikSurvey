@@ -1,6 +1,6 @@
 const HeaderBanner = () => (
   <header 
-    className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] shadow-2xl border-b-4 border-amber-400 min-h-[500px] bg-cover bg-center bg-no-repeat"
+    className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] shadow-2xl min-h-[500px] bg-cover bg-center bg-no-repeat"
     style={{
       backgroundImage: "url('/banner.png')",
       backgroundColor: "#1e293b" // fallback color
@@ -18,11 +18,11 @@ const HeaderBanner = () => (
             <img src="/vite.svg" alt="Jan Suraaj Logo" className="h-12 w-12" />
           </div>
           <div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight drop-shadow-lg">
-              Jan Suraaj
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-amber-300 tracking-tight drop-shadow-lg">
+              जन सुराज
             </h1>
-            <p className="text-amber-300 text-lg md:text-xl font-medium tracking-wide drop-shadow-lg">
-              Aantirik Survey
+            <p className="text-base md:text-lg lg:text-xl font-semibold text-white tracking-wide drop-shadow-lg mt-1">
+              आंतिरिक सर्वेक्षण
             </p>
           </div>
         </div>
@@ -43,13 +43,13 @@ const HeaderBanner = () => (
             यह प्रश्नावली जन सुराज के 'बदलाव' के संकल्प को ज़मीनी स्तर पर परखने का एक निर्णायक प्रयास है। हम मानते हैं कि आपका मत ही जन सुराज की असली ताक़त है।
           </p>
           
-          <div className="w-24 h-1 bg-amber-400 mx-auto rounded-full shadow-lg"></div>
+          {/* <div className="w-24 h-1 bg-amber-400 mx-auto rounded-full shadow-lg"></div> */}
           
           <p className="text-base md:text-lg leading-relaxed text-white/95 drop-shadow-lg">
             यह सर्वेक्षण बिहार के आगामी राजनीतिक परिदृश्य को समझने के लिए अत्यंत महत्वपूर्ण है। इसके माध्यम से, हम आपके विधानसभा क्षेत्र में प्रशांत किशोर जी की पहल के प्रभाव, संगठन की ताक़त, विचारधारा के आकर्षण, और चुनावी संभावनाओं का निष्पक्ष आकलन कर रहे हैं।
           </p>
           
-          <div className="bg-amber-400/30 border-l-4 border-amber-400 p-4 rounded-r-lg backdrop-blur-sm">
+          <div className="bg-amber-400/30 p-4 rounded-lg backdrop-blur-sm">
             <p className="text-base md:text-lg leading-relaxed text-amber-100 font-semibold drop-shadow-lg">
               कृपया अपनी स्पष्ट और ईमानदार राय दें, क्योंकि आपकी राय ही जन सुराज के लिए भविष्य का रास्ता तय करेगी।
             </p>
@@ -58,8 +58,8 @@ const HeaderBanner = () => (
       </div>
     </div>
     
-    {/* Decorative bottom border */}
-    <div className="relative z-10 h-2 bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500"></div>
+    {/* Subtle gradient border at bottom */}
+    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-400/40 to-transparent"></div>
   </header>
 );
 
