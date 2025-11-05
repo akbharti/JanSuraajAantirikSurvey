@@ -9,7 +9,7 @@ const Footer = () => (
         
         {/* Developer name */}
         <p className="text-xl md:text-2xl font-bold text-white">
-          Abhishek Bharti
+          अभिषेक भारती
         </p>
         
         {/* Social links */}

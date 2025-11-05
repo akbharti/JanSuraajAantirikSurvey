@@ -8,8 +8,8 @@ const MCQQuestions = ({ values, onMCQChange, errors }) => {
 
   return (
     <section className="bg-white rounded-xl shadow-md p-6">
-      <h2 className="text-xl font-bold text-gray-800 mb-1">Multiple Choice Questions</h2>
-      <p className="text-gray-500 mb-5">Please select one option for each question (केवल एक चुनें)</p>
+      <h2 className="text-xl font-bold text-gray-800 mb-1">बहुविकल्पीय प्रश्न</h2>
+      <p className="text-gray-500 mb-5">कृपया प्रत्येक प्रश्न के लिए एक विकल्प चुनें (केवल एक चुनें)</p>
       {mcqQuestions.map((q, idx) => (
         <div key={q.id} className="mb-4">
           <div className="mb-2 font-medium text-gray-900">{idx + 8}. {q.text}</div>

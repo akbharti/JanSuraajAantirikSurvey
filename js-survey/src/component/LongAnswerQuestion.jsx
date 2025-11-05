@@ -15,7 +15,7 @@ const LongAnswerQuestion = ({
         className={`w-full border p-3 rounded-md focus:outline-none resize-none min-h-[100px] ${
           error ? "border-red-500" : "border-gray-300"
         }`}
-        placeholder="Type your Long  answer here... (दीर्घ उत्तर)"
+        placeholder="अपना विस्तृत उत्तर यहाँ लिखें... (दीर्घ उत्तर)"
         required
       />
       {error && (

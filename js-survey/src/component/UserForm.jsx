@@ -3,19 +3,19 @@ import React from "react";
 const UserForm = ({ values, onUserChange, errors }) => {
   return (
     <section className="bg-white rounded-xl shadow-md p-6">
-      <h2 className="text-xl font-bold text-gray-800 mb-1">Personal Information</h2>
-      <p className="text-gray-500 mb-5">Please provide your contact details</p>
+      <h2 className="text-xl font-bold text-gray-800 mb-1">व्यक्तिगत जानकारी</h2>
+      <p className="text-gray-500 mb-5">कृपया अपनी संपर्क जानकारी प्रदान करें</p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="name" className="block font-semibold mb-1">
-            Full Name <span className="text-red-500">*</span>
+            पूरा नाम <span className="text-red-500">*</span>
           </label>
           <input
             id="name"
             type="text"
             value={values.name}
             onChange={(e) => onUserChange("name", e.target.value)}
-            placeholder="Enter your full name"
+            placeholder="अपना पूरा नाम दर्ज करें"
             className={`w-full border p-2 rounded-md focus:outline-none ${
               errors.name ? "border-red-500" : "border-gray-300"
             }`}
@@ -24,7 +24,7 @@ const UserForm = ({ values, onUserChange, errors }) => {
         </div>
         <div>
           <label htmlFor="phone" className="block font-semibold mb-1">
-            Mobile Number <span className="text-red-500">*</span>
+            मोबाइल नंबर <span className="text-red-500">*</span>
           </label>
           <input
             id="phone"
@@ -32,7 +32,7 @@ const UserForm = ({ values, onUserChange, errors }) => {
             maxLength={10}
             value={values.phone}
             onChange={(e) => onUserChange("phone", e.target.value)}
-            placeholder="Enter 10-digit mobile number"
+            placeholder="10 अंकों का मोबाइल नंबर दर्ज करें"
             className={`w-full border p-2 rounded-md focus:outline-none ${
               errors.phone ? "border-red-500" : "border-gray-300"
             }`}

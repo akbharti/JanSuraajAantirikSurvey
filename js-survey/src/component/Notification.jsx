@@ -26,7 +26,7 @@ const Notification = ({ type, message, onClose }) => {
         </div>
         <div className="flex-1 pl-2">
           <div className="font-semibold text-lg">
-            {isSuccess ? "Success" : "Failed"}
+            {isSuccess ? "सफल" : "विफल"}
           </div>
           <div className="text-[15px]">{message}</div>
         </div>

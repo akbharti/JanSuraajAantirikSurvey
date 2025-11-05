@@ -54,21 +54,21 @@ function App() {
   const validateAll = () => {
     const errs = {};
     // User validation
-    if (!user.name.trim()) errs.name = "Name is required";
-    if (!user.phone.trim()) errs.phone = "Phone number is required";
-    else if (!/^\d{10}$/.test(user.phone)) errs.phone = "Phone number must be 10 digits";
+    if (!user.name.trim()) errs.name = "नाम आवश्यक है";
+    if (!user.phone.trim()) errs.phone = "फोन नंबर आवश्यक है";
+    else if (!/^\d{10}$/.test(user.phone)) errs.phone = "फोन नंबर 10 अंकों का होना चाहिए";
     // Geo validation
-    if (!geo.district) errs.district = "District is required";
-    if (!geo.assembly) errs.assembly = "Assembly is required";
-    if (!geo.address || !geo.address.trim()) errs.address = "Address is required";
+    if (!geo.district) errs.district = "जिला आवश्यक है";
+    if (!geo.assembly) errs.assembly = "विधानसभा आवश्यक है";
+    if (!geo.address || !geo.address.trim()) errs.address = "पता आवश्यक है";
     // Ratings and MCQ
     surveyQuestions.forEach((q) => {
-      if (!ratings[q.id]) errs[`rating_${q.id}`] = "Please select rating";
+      if (!ratings[q.id]) errs[`rating_${q.id}`] = "कृपया रेटिंग चुनें";
     });
     mcqQuestions.forEach((q) => {
-      if (!mcqs[q.id]) errs[`mcq_${q.id}`] = "Please select an option";
+      if (!mcqs[q.id]) errs[`mcq_${q.id}`] = "कृपया एक विकल्प चुनें";
     });
-    if (!longAnswer.trim()) errors.longAnswer = "This field is required";
+    if (!longAnswer.trim()) errs.longAnswer = "यह फील्ड आवश्यक है";
 
     setErrors(errs);
     return Object.keys(errs).length === 0;
@@ -155,20 +155,20 @@ const sendDataToSheet = async (jsonData) => {
         const result = await sendDataToSheet(formData);
         
         if (result.status === "success") {
-          setNotification({ type: "success", message: "Survey submitted successfully" });
+          setNotification({ type: "success", message: "सर्वेक्षण सफलतापूर्वक जमा किया गया" });
           clearAllFields();
           console.log("Submitted data:", formData);
         } else {
-          setNotification({ type: "error", message: "Failed to submit data" });
+          setNotification({ type: "error", message: "डेटा जमा करने में विफल" });
         }
       } catch (error) {
         console.error("Submission error:", error);
-        setNotification({ type: "error", message: "An error occurred while submitting" });
+        setNotification({ type: "error", message: "जमा करते समय एक त्रुटि हुई" });
       } finally {
         setIsSubmitting(false);
       }
     } else {
-      setNotification({ type: "error", message: "Please fix validation errors" });
+      setNotification({ type: "error", message: "कृपया सत्यापन त्रुटियों को ठीक करें" });
     }
   };
 
@@ -243,10 +243,10 @@ const sendDataToSheet = async (jsonData) => {
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                     ></path>
                   </svg>
-                  Submitting...
+                  जमा किया जा रहा है...
                 </>
               ) : (
-                "Submit Survey"
+                "सर्वेक्षण जमा करें"
               )}
             </button>
           </div>

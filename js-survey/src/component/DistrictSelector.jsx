@@ -33,12 +33,12 @@ const DistrictSelector = ({ values, onDistrictChange, errors }) => {
 
   return (
     <section className='bg-white rounded-xl shadow-md p-6'>
-      <h2 className='text-xl font-bold text-gray-800 mb-1'>Geographic Information</h2>
-      <p className='text-gray-500 mb-5'>Select your district and constituency</p>
+      <h2 className='text-xl font-bold text-gray-800 mb-1'>भौगोलिक जानकारी</h2>
+      <p className='text-gray-500 mb-5'>अपना जिला और विधानसभा क्षेत्र चुनें</p>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
         <div>
           <label htmlFor='district' className='block font-semibold mb-1'>
-            District <span className='text-red-500'>*</span>
+            जिला <span className='text-red-500'>*</span>
           </label>
           <select
             id='district'
@@ -48,7 +48,7 @@ const DistrictSelector = ({ values, onDistrictChange, errors }) => {
               errors.district ? 'border-red-500' : 'border-gray-300'
             }`}
           >
-            <option value=''>Select your district</option>
+            <option value=''>अपना जिला चुनें</option>
             {districts.map((d) => (
               <option key={d} value={d}>
                 {d}
@@ -59,7 +59,7 @@ const DistrictSelector = ({ values, onDistrictChange, errors }) => {
         </div>
         <div>
           <label htmlFor='assembly' className='block font-semibold mb-1'>
-            Vidhansabha (Assembly Constituency) <span className='text-red-500'>*</span>
+            विधानसभा क्षेत्र <span className='text-red-500'>*</span>
           </label>
           <select
             id='assembly'
@@ -70,7 +70,7 @@ const DistrictSelector = ({ values, onDistrictChange, errors }) => {
               errors.assembly ? 'border-red-500' : 'border-gray-300'
             }`}
           >
-            <option value=''>Select your constituency</option>
+            <option value=''>अपना विधानसभा क्षेत्र चुनें</option>
             {assemblyList.map((a) => (
               <option key={a} value={a}>
                 {a}
@@ -93,10 +93,10 @@ const DistrictSelector = ({ values, onDistrictChange, errors }) => {
                   <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                 </svg>
               </div>
-              Jan Suraaj Candidate Information
+              जन सुराज प्रत्याशी जानकारी
             </h3>
             <div className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-semibold">
-              Official
+              आधिकारिक
             </div>
           </div>
           
@@ -108,7 +108,7 @@ const DistrictSelector = ({ values, onDistrictChange, errors }) => {
                     <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" />
                   </svg>
                 </div>
-                <span className="text-sm font-medium text-slate-600">Assembly No.</span>
+                <span className="text-sm font-medium text-slate-600">विधानसभा नंबर</span>
               </div>
               <p className="text-3xl font-bold text-slate-800 text-center">{candidateInfo.assembly_no}</p>
             </div>
@@ -120,7 +120,7 @@ const DistrictSelector = ({ values, onDistrictChange, errors }) => {
                     <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                   </svg>
                 </div>
-                <span className="text-sm font-medium text-slate-600">Candidate Name</span>
+                <span className="text-sm font-medium text-slate-600">प्रत्याशी का नाम</span>
               </div>
               <p className="text-lg font-bold text-slate-800 text-center">{candidateInfo.candidate_name}</p>
             </div>
@@ -132,7 +132,7 @@ const DistrictSelector = ({ values, onDistrictChange, errors }) => {
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
                 </div>
-                <span className="text-sm font-medium text-slate-600">Contact</span>
+                <span className="text-sm font-medium text-slate-600">संपर्क</span>
               </div>
               <p className="text-lg font-bold text-slate-800 text-center">{candidateInfo.contact}</p>
             </div>
@@ -149,14 +149,14 @@ const DistrictSelector = ({ values, onDistrictChange, errors }) => {
       {/* Address Field - full width below dropdowns */}
       <div className='mt-6'>
         <label htmlFor='address' className='block font-semibold mb-1'>
-          Address <span className='text-red-500'>*</span>
+          पता <span className='text-red-500'>*</span>
         </label>
         <textarea
           id='address'
           rows={2}
           value={values.address || ""}
           onChange={(e) => handleChange('address', e.target.value)}
-          placeholder="Enter your address"
+          placeholder="अपना पता दर्ज करें"
           className={`w-full border p-2 rounded-md focus:outline-none resize-none ${
             errors.address ? 'border-red-500' : 'border-gray-300'
           }`}
